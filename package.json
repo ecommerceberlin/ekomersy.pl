@@ -1,19 +1,18 @@
 {
-  "name": "ekomersy-site",
-  "version": "1.0.0",
-  "description": "site",
+  "name": "ecommerceberlin-awards",
+  "version": "2.0.0",
+  "description": "ecommerceberlin awards site",
   "main": "pages/index.js",
   "scripts": {
     "next": "next",
     "precommit": "lint-staged",
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "analyze": "cross-env ANALYZE=1 next build"
+    "start": "NODE_ENV=production next start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ekomersy/site.git"
+    "url": "git+https://github.com/ecommerceberlin/awards/site.git"
   },
   "lint-staged": {
     "./pages/*.{js,jsx,json,css}": [
@@ -24,24 +23,24 @@
   "author": "adam zygadlewicz <adam.zygadlewicz@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ekomersy/site/issues"
+    "url": "https://github.com/ecommerceberlin/awards/issues"
   },
-  "homepage": "https://github.com/ekomersy/site#readme",
+  "homepage": "https://github.com/ecommerceberlin/awards#readme",
   "dependencies": {
-    "dotenv-webpack": "^1.5.7",
-    "eventjuicer-site-components": "^1.0.26",
-    "next": "^7.0.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "eventjuicer-site-components": "2.6.8",
+    "next": "^10.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-icons": "^3.7.0",
+    "vercel": "^20.1.2"
   },
   "devDependencies": {
-    "cross-env": "^5.1.4",
-    "eslint-config-prettier": "^3.3.0",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "husky": "^0.14.3",
-    "lint-staged": "^7.2.2",
-    "prettier": "^1.15.3",
-    "webpack-bundle-analyzer": "^2.11.1"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
   },
   "browserslist": [
     ">0.2%",

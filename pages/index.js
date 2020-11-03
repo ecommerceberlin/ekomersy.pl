@@ -1,107 +1,127 @@
 import {
   connect,
-  MyHead as Head,
-  // MyLink as Link,
-  // FsVideo,
   WidgetVideoWithEventInfo,
-  WidgetVideoWithReviews,
-  WidgetVisitor,
-  // WidgetFeaturedExhibitors,
-  WidgetAllExhibitorsColumnList,
-  WidgetSalesMap,
-  // WidgetPresenters,
-  WidgetSchedule,
-  // WidgetExhibitors,
-  LayoutMain as Layout,
-  WidgetRoleButtons,
-  Wrapper
+  WidgetContestantCompaniesArchiveWinners,
+  WidgetJurors,
+  Wrapper,
+  reduxWrapper,
+  configure,
+  TwoColsLayout as Section,
+  MyTypography,
+  Markdown,
+  WidgetVerticalTimeline,
+  WidgetPhotostream,
+  WidgetRegForm,
+  WidgetFaq,
+  WidgetIconGrid
 } from 'eventjuicer-site-components';
 
-import FeaturedExhibitors from '../src/FeaturedExhibitors';
-import FeaturedPresenters from '../src/FeaturedPresenters';
 
-const settings = require('../settings').default;
+import {Categories, Timeline, WhyParticipate} from '../src/icons' 
+import AllPartners from '../src/AllPartners'
+import settings from '../settings';
 
-class PageIndex extends React.Component {
-  static async getInitialProps({ query, isServer, store }) {
-    return {
-      preload: ['exhibitors'],
-      settings: settings
-      //    load : ["bookingmap", "formdata", "ticketgroups"]
-    };
+
+const PageIndex = (props) => (
+
+
+  <div>
+
+  <WidgetVideoWithEventInfo />
+
+  <Wrapper first label="awards.hello.title">
+  
+  <Section 
+   
+   left={  
+      <div style={{marginTop: '5rem'}}>
+      <MyTypography template="h4" label="awards.hello.submit" />
+      <MyTypography template="subtitle1" label="awards.hello.needs" />
+      <Markdown label="awards.hello.details" />
+      </div> 
+    }
+   right={ 
+      <Timeline />
+   }
+ leftCentered={true}
+/>
+
+
+ </Wrapper>
+
+
+<WidgetRegForm
+
+  setting="contestant.register"
+  options={{
+  "categories": [
+    'sales_generation',
+    'communication',
+    'internationalization',
+    'logistics',
+    'platform',
+    'payment',
+    'analytics',
+    'agency',
+    'infrastructure',
+    'innovation'
+  ]
+  }} 
+  right={
+    <>
+    <MyTypography template="subtitle1" label="awards.rules-summary.title" />  
+    <Markdown label="awards.rules-summary.body" />
+    </>
   }
+ summary={<div>asd</div>}
+ />
 
-  render() {
-    return (
-      <Layout>
-        <Head />
+<WhyParticipate />
 
-        {/* <WidgetVideoWithEventInfo />
+<Categories />
 
-        <WidgetVisitor
-          label="visitors.register"
-          secondaryLabel="event.parties"
-        />
+<WidgetFaq setting="contestant.faq" />
 
-        <WidgetRoleButtons first={true} />
+<WidgetJurors
+  label="awards.jury.title"
+  secondaryLabel="awards.jury.description"
+  disableTemps={false}
+  limit={100}
+  filter={null}
+  bio={false}
+  minToShow={1}
+/>
+ 
+<WidgetContestantCompaniesArchiveWinners />
 
-        <FeaturedPresenters bio={false} />
-
-        <WidgetSchedule />
-
-        <WidgetSalesMap
-          label="exhibitors.map.title2"
-          secondaryLabel="exhibitors.map.opensales"
-        />
-
-        <FeaturedExhibitors />
-
-        <WidgetVisitor
-          label="visitors.register_alt"
-          secondaryLabel="event.parties"
-        />
-
-       <WidgetAllExhibitorsColumnList />
+<WidgetPhotostream setting="awardsphotostream" />
 
 
+<AllPartners />
 
-        <WidgetVisitor
-          label="visitors.register"
-          secondaryLabel="event.parties"
-        />
 
-        <Wrapper label="partners.media.title">
-          <div style={{ textAlign: 'center' }}>
-            <img
-              src="https://res.cloudinary.com/ecommerceberlin/image/upload/c_limit,w_1000/v1546766050/media_partners.jpg"
-              alt=""
-              style={{ width: '100%', maxWidth: 900 }}
-            />
-          </div>
-        </Wrapper>
+</div>
 
-        <Wrapper label="partners.community.title">
-          <div style={{ textAlign: 'center' }}>
-            <img
-              src="https://res.cloudinary.com/ecommerceberlin/image/upload/c_limit,w_1000/v1546766051/community_partners.jpg"
-              alt=""
-              style={{ width: '100%', maxWidth: 900 }}
-            />
-          </div>
-        </Wrapper> */}
+)
+ 
+ 
+export const getStaticProps = reduxWrapper.getStaticProps(async ({ store }) => {
 
-        {/* <WidgetVideoWithReviews overlay="black" /> */}
+  await configure(store, {
+    settings: settings,
+  preload: ['contestant_companies_all']
+  })
 
-        {/* <FsVideo
-          background="https://res.cloudinary.com/eventjuicer/image/upload/v1534553598/poster_stage1.jpg"
-          videoSrc="https://res.cloudinary.com/eventjuicer/video/upload/v1534553583/video_stage1.mp4"
-        /> */}
-      </Layout>
-    );
+  return {
+    props: {},
+    revalidate: 1
   }
-}
+  
+})
 
-export default connect(
-  null,
-  null
-)(PageIndex);
+
+
+export default connect()(PageIndex);
+
+
+

@@ -12,15 +12,18 @@ const FeaturedPresenters = (props) => (
 FeaturedPresenters.defaultProps = {
 
     filter: function(item) {
-        return  [84207,84485,84486,84493,84496,84820,84821,85319].indexOf(item.id) > -1;
+        return  (
 
-        //   item.avatar.indexOf("http") > -1 &&
-        //   item.logotype.indexOf("http") > -1 &&
-        //   item.bio.length > 20
+          item.avatar.indexOf("http") > -1 &&
+          item.logotype.indexOf("http") > -1 &&
+          item.bio.length > 20 &&
+          item.featured > 0
+        )
         
     },
+  
     bio : false,
-    limit : 8
+    limit : null
 }
 
 export default FeaturedPresenters;

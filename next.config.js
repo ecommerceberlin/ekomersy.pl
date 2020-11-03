@@ -1,36 +1,37 @@
-require('dotenv').config()
-
-const path = require('path')
-const Dotenv = require('dotenv-webpack')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { ANALYZE } = process.env;
-const { IgnorePlugin } = require('webpack');
-
 module.exports = {
-  webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
 
-    config.plugins = config.plugins || []
+ 
+  i18n: {
+    // These are all the locales you want to support in
+    // your application
+    locales: ['en'],
+    // This is the default locale you want to be used when visiting
+    // a non-locale prefixed path e.g. `/hello`
+    defaultLocale: 'en',
+    // This is a list of locale domains and the default locale they
+    // should handle (these are only required when setting up domain routing)
+    // domains: [
+    //   {
+    //     domain: 'example.com',
+    //     defaultLocale: 'en-US',
+    //   },
+    //   {
+    //     domain: 'example.nl',
+    //     defaultLocale: 'nl-NL',
+    //   },
+    //   {
+    //     domain: 'example.fr',
+    //     defaultLocale: 'fr',
+    //   },
+    // ],
+  },
 
-    //config.plugins.push(new IgnorePlugin(/^raven$/));
-
-    config.plugins.push(
-      new Dotenv({
-        path: path.join(__dirname, '.env'),
-        systemvars: true
-      })
-    )
-    
-    if (ANALYZE) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: isServer ? 8888 : 8889,
-          openAnalyzer: true
-        })
-      );
-    }
-
-
-    return config
+    async rewrites() {
+      return [
+     //   {
+          // source: '/:slug,c,:id',
+          // destination: '/company/:id', 
+       // },
+      ]
+    },
   }
-}
