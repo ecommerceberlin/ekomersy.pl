@@ -1,7 +1,5 @@
 const settings  = {
 
-    AVAILABLE_LOCALES : "pl",
-    DEFAULT_LOCALE : "pl",
     PROJECT : "ekomersy.pl",
     NAME : "ekomersy",
     GTM : "GTM-TFSQ6GK",
@@ -12,8 +10,6 @@ const settings  = {
     system : {
 
         lang_api_endpoint : 'https://localise.biz/api/export/all.json?format=multi&pretty&key=SHiwxgKaPMx_KThQH2zcdzwiKEMzuNBm',
-        available_locales : ["pl"],
-        default_locale : "pl",
         api : "https://api.eventjuicer.com/v1/public/hosts/ekomersy.pl",
         service_api : "https://api.eventjuicer.com/v1/services",
         post_api : "https://api.eventjuicer.com/v1/public/hosts/ekomersy.pl/register",
@@ -61,12 +57,12 @@ const settings  = {
                 ]
               },
 
-            {
-              name: 'partners',
-              items: [
-                {name: 'premium', to: '/premium'},
-              ]
-            },
+            // {
+            //   name: 'partners',
+            //   items: [
+            //     {name: 'premium', to: '/premium'},
+            //   ]
+            // },
             // {
             //   name: 'exhibitors',
             //   items: [
