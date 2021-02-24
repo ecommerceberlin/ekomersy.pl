@@ -9,7 +9,9 @@ import settings from '../settings';
 
 const PageIndex = (props) => (
 
-  <div>Coming soon</div>
+  <Wrapper>
+    <div style={{height: 2000}}>Maintenance</div>
+  </Wrapper>
 
 )
  
