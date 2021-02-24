@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   connect,
   get as _get,
@@ -197,9 +199,9 @@ The announcement of the Contest Winners will take place during the “E-commerce
 
 )
 
-export const getStaticProps = reduxWrapper.getStaticProps(async ({ store }) => {
+export const getStaticProps = reduxWrapper.getStaticProps(async (props) => {
 
-  await configure(store, {
+  await configure(props, {
     settings: settings,
     preload: ['contestant_companies']
   })

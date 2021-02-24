@@ -9,7 +9,7 @@ const settings  = {
 
     system : {
 
-        lang_api_endpoint : 'https://localise.biz/api/export/all.json?format=multi&pretty&key=SHiwxgKaPMx_KThQH2zcdzwiKEMzuNBm',
+        lang_api_endpoint : 'https://api.eventjuicer.com/proxy?url=https%3A%2F%2Flocalise.biz%2Fapi%2Fexport%2Fall.json%3Fformat%3Dmulti%26pretty%26key%3DSHiwxgKaPMx_KThQH2zcdzwiKEMzuNBm',
         api : "https://api.eventjuicer.com/v1/public/hosts/ekomersy.pl",
         service_api : "https://api.eventjuicer.com/v1/services",
         post_api : "https://api.eventjuicer.com/v1/public/hosts/ekomersy.pl/register",

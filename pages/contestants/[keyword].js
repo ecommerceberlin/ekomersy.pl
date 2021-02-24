@@ -66,19 +66,19 @@ export const getStaticPaths = () => {
 return {paths: [], fallback: true}
 }
 
-export const getStaticProps = reduxWrapper.getStaticProps(async ({ params, store }) => {
+export const getStaticProps = reduxWrapper.getStaticProps(async (props) => {
 
-  await configure(store, {
+  const {params: {keyword}} = props;
+
+  await configure(props, {
     settings: settings,
     preload: ['contestant_companies']
   })
 
-  return {props : {
-    keyword: "keyword" in params ? params.keyword : ""
-  }, 
-  revalidate: 1}
-  
-})
+  return {
+    props : {keyword}, 
+    revalidate: 10}
+  })
 
 
 export default connect()(PageVote);
