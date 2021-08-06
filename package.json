@@ -1,7 +1,7 @@
 {
-  "name": "ecommerceberlin-awards",
+  "name": "ekomersy",
   "version": "2.0.0",
-  "description": "ecommerceberlin awards site",
+  "description": "ekomersy site",
   "main": "pages/index.js",
   "scripts": {
     "next": "next",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecommerceberlin/awards/site.git"
+    "url": "git+https://github.com/ecommerceberlin/ekomersy.pl.git"
   },
   "lint-staged": {
     "./pages/*.{js,jsx,json,css}": [
@@ -23,9 +23,9 @@
   "author": "adam zygadlewicz <adam.zygadlewicz@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecommerceberlin/awards/issues"
+    "url": "https://github.com/ecommerceberlin/ekomersy.pl/issues"
   },
-  "homepage": "https://github.com/ecommerceberlin/awards#readme",
+  "homepage": "https://github.com/ecommerceberlin/ekomersy.pl#readme",
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
     "@sentry/nextjs": "^6.10.0",
